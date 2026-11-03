@@ -1,0 +1,772 @@
+<!-- ============================================================ -->
+<!-- FILE: index.html                                              -->
+<!-- ============================================================ -->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asaph10074's tech portfolio showcasing Android modding, web development, and music projects.">
+    <meta name="color-scheme" content="dark light">
+    <title data-i18n="title">Asaph10074' Website</title>
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="icons/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="Images/My%20profile%20picture%20(Dark).webp" as="image">
+    <link rel="preload" href="Images/My%20profile%20picture%20(Light).webp" as="image">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="Styles/7.scoped.css?v=cda0532c" media="print" onload="var t;try{t=localStorage.getItem('theme-style-v2')}catch(e){}this.media=(t==='expressive')?'none':'all'" id="w7css-theme">
+    <link rel="stylesheet" href="style.css?v=0f5ffae0">
+    <link rel="stylesheet" href="Styles/nav-menu.css?v=a84ad011">
+    <link rel="stylesheet" href="Styles/modal-shell.css?v=10acc515">
+    <link rel="stylesheet" href="Styles/aero-skeuo-fix.css?v=8c33f940">
+    <link rel="stylesheet" href="Styles/music-player.css?v=949c72e7">
+    <link rel="stylesheet" href="Styles/close-buttons-center.css?v=cfaa5da0">
+    <link rel="stylesheet" href="Styles/social-aero.css?v=96df6fd6">
+    <link rel="stylesheet" href="Styles/scrollbar-desktop.css?v=351d0e04">
+
+    <script>
+        /* Load only the active theme stylesheet (expressive/skeuo/frutiger) on demand.
+           Browsers still download <link media="none"> stylesheets, so these
+           must be injected lazily instead of being declared up front. */
+        (function () {
+            var savedStyle = 'aero';
+            var savedColor = 'blue';
+            try { savedStyle = localStorage.getItem('theme-style-v2') || 'aero'; } catch (e) {}
+            try { savedColor = localStorage.getItem('theme-color-v2') || 'blue'; } catch (e) {}
+            document.body.setAttribute('data-theme-style', savedStyle);
+            document.body.setAttribute('data-theme-color', savedColor);
+            var map = {
+                'expressive': 'Styles/theme-expressive.css?v=1e087b67',
+                'skeuo': 'Styles/theme-skeuo.css?v=48bb0d7a',
+                'frutiger': 'Styles/theme-frutiger.css?v=25b8225a'
+            };
+            var href = map[savedStyle];
+            if (href) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = href;
+                link.id = 'theme-' + savedStyle + '-css';
+                document.head.appendChild(link);
+            }
+        })();
+    </script>
+    <script src="script.js?v=1370c2ec" defer></script>
+    <script src="Scripts/builds-list-popup.js?v=8384cc96" defer></script>
+    <script src="Scripts/music-player-swipe.js?v=f3de0911" defer></script>
+    <script src="Scripts/music-player-seek.js?v=38781efd" defer></script>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap"></noscript>
+    <style id="lang-switch-pressed">
+        body[data-theme-style=skeuo].light-mode .lang-switch-floating:active:not(:disabled),
+        body[data-theme-style=skeuo].light-mode .lang-switch-floating:hover:active:not(:disabled),
+        body[data-theme-style=skeuo].light-mode .lang-switch-floating.active:active:not(:disabled),
+        body[data-theme-style=skeuo].light-mode .lang-switch-floating.active:not(:hover){background:linear-gradient(180deg,#c7cdd4 0,#b3bac2 55%,#99a0a8)!important;border-color:#8b9198!important;border-top-color:#8b9198!important;color:#22303d!important;box-shadow:inset 0 2px 6px #00000052!important}
+        body[data-theme-style=skeuo]:not(.light-mode) .lang-switch-floating:active:not(:disabled),
+        body[data-theme-style=skeuo]:not(.light-mode) .lang-switch-floating:hover:active:not(:disabled),
+        body[data-theme-style=skeuo]:not(.light-mode) .lang-switch-floating.active:active:not(:disabled),
+        body[data-theme-style=skeuo]:not(.light-mode) .lang-switch-floating.active:not(:hover){background:linear-gradient(180deg,#3f454d 0,#2b3036 55%,#1c2025)!important;border-color:#040506!important;border-top-color:#040506!important;color:#eef1f3!important;box-shadow:inset 0 2px 6px #000000b3!important}
+    </style>
+</head>
+<body>
+    <!-- Floating Language Button - Bottom Right -->
+    <button id="lang-switch" class="lang-switch-floating" title="More Languages"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><defs><linearGradient id="fff5dcaa-48fe-4990-9204-1670ea2377cd" x1="11.841" y1="2.17" x2="11.841" y2="13.446" gradientUnits="userSpaceOnUse"><stop offset="0.001" stop-color="#ffb34d" /><stop offset="1" stop-color="#faa21d" /></linearGradient><linearGradient id="a8e30e54-ca13-4995-915b-e4de999d703b" x1="-2018.213" y1="1017.927" x2="-2018.213" y2="1009.817" gradientTransform="translate(-2013.007 1025.516) rotate(180)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#50e6ff" /><stop offset="1" stop-color="#32bedd" /></linearGradient></defs><g id="adde4e84-76b1-415f-905a-fab09c0b1f16"><g><path d="M.362,3.138A.362.362,0,0,1,0,2.777H0V.361A.362.362,0,0,1,.362,0H2.628a.361.361,0,0,1,0,.722H.724V2.775a.363.363,0,0,1-.361.363ZM18,2.777V.361A.362.362,0,0,0,17.638,0H15.372a.361.361,0,1,0,0,.722h1.9V2.775a.362.362,0,0,0,.724,0ZM2.99,17.639a.361.361,0,0,0-.362-.361H.724V15.225a.362.362,0,0,0-.724,0V17.64A.362.362,0,0,0,.362,18H2.628A.362.362,0,0,0,2.99,17.639Zm15.01,0V15.225a.362.362,0,0,0-.724,0v2.053h-1.9a.361.361,0,1,0,0,.722h2.266A.362.362,0,0,0,18,17.64Z" fill="#faa21d" /><g><g><path d="M16.684,2.666V13.129a.318.318,0,0,1-.3.329H10.628a.281.281,0,0,1-.281-.281V8.266A.945.945,0,0,0,9.415,7.4H7.279A.281.281,0,0,1,7,7.12V2.666a.316.316,0,0,1,.3-.33h9.08A.316.316,0,0,1,16.684,2.666Z" fill="url(#fff5dcaa-48fe-4990-9204-1670ea2377cd)" /><path d="M15.118,6.405h-1.79a.327.327,0,0,1-.285-.356.328.328,0,0,1,.285-.357h1.79a.328.328,0,0,1,.286.357A.327.327,0,0,1,15.118,6.405Z" fill="#f78d1e" /></g><g><path d="M9.414,7.823H1A.53.53,0,0,0,.489,8.3v5.687A.524.524,0,0,0,1,14.463H3.784a.08.08,0,0,1,.081.079V15.5a.191.191,0,0,0,.208.164a.181.181,0,0,0,.086-.035l.278-.181.77-.51.7-.466a.11.11,0,0,1,.052-.017H9.414a.509.509,0,0,0,.511-.468V8.3A.523.523,0,0,0,9.414,7.823Z" fill="url(#a8e30e54-ca13-4995-915b-e4de999d703b)" ... (line truncated to 2000 chars)
+</svg>
+    </button>
+
+<!-- Floating Navigation - Hamburger Menu with Nav Panel (left bottom) -->
+    <nav class="bottom-nav" aria-label="Page navigation">
+        <div class="win7">
+            <button id="hamburger-btn" class="hamburger-btn" type="button" title="Navigation menu" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <ul role="menu" class="nav-panel" id="nav-panel">
+                <li role="menuitem" class="nav-panel-btn-item">
+                    <button class="nav-panel-btn" data-action="scroll-top" type="button" title="Scroll to top" data-i18n="scrollTop"><span class="scroll-ico-wrap"><img class="scroll-ico scroll-ico-netshell" src="icons/netshell_2300.ico" alt="" width="16" height="16" decoding="async"><img class="scroll-ico scroll-ico-skeuo" src="icons/skeuo-scroll-top.svg" alt="" width="16" height="16" decoding="async"><img class="scroll-ico scroll-ico-m3" src="icons/arrow_upward_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="16" height="16" decoding="async"></span>Scroll to top</button>
+                </li>
+                <li role="menuitem" class="nav-panel-btn-item">
+                    <button class="nav-panel-btn" data-action="scroll-bottom" type="button" title="Scroll to bottom" data-i18n="scrollBottom"><span class="scroll-ico-wrap"><img class="scroll-ico scroll-ico-netshell" src="icons/netshell_2301.ico" alt="" width="16" height="16" decoding="async"><img class="scroll-ico scroll-ico-skeuo" src="icons/skeuo-scroll-bottom.svg" alt="" width="16" height="16" decoding="async"><img class="scroll-ico scroll-ico-m3" src="icons/arrow_downward_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="16" height="16" decoding="async"></span>Scroll to bottom</button>
+                </li>
+                <li role="menuitem" class="has-divider"></li>
+
+                <li role="menuitem" class="nav-panel-btn-item theme-sub-header" style="pointer-events: none;">
+                    <span><span class="styles-ico-wrap"><img class="styles-ico styles-ico-netshell" src="icons/imageres_151.webp" alt="" width="16" height="16" decoding="async"><img class="styles-ico styles-ico-m3" src="icons/format_paint_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="16" height="16" decoding="async"></span>Styles</span>
+                </li>
+
+                <li role="menuitem" class="nav-panel-btn-item dropdown-wrap">
+                    <div class="dropdown-trigger-wrap"><button class="theme-opt">Aero</button></div>
+                    <ul role="menu" class="dropdown-list">
+                        <li role="menuitem"><button type="button" data-value="aero"><img src="icons/not_found_by_epikboy96_df41by5-pre.webp" alt="" class="theme-opt-icon" width="24" height="24" decoding="async">Aero</button></li>
+                        <li role="menuitem"><button type="button" data-value="frutiger-green"><img src="icons/Blackcomb_regular.webp" alt="" class="theme-opt-icon" width="24" height="24" decoding="async">Frutiger Aero Green </button></li>
+                        <li role="menuitem"><button type="button" data-value="frutiger-blue"><img src="icons/Blackcomb_7000_orb.webp" alt="" class="theme-opt-icon" width="24" height="24" decoding="async">Frutiger Aero Blue</button></li>
+                        <li role="menuitem"><button type="button" data-value="skeuo"><img src="icons/aero-skeuo.svg" alt="" class="theme-opt-icon" width="24" height="24" decoding="async">Aero Skeuomorphism</button></li>
+                        <li role="menuitem"><button type="button" data-value="expressive"><img src="icons/m3.svg" alt="" class="theme-opt-icon" width="24" height="24" decoding="async">M3</button></li>
+                    </ul>
+                </li>
+
+                <li role="menuitem" class="nav-panel-btn-item">
+                    <button id="theme-toggle-nav" class="nav-panel-btn" type="button" aria-label="Toggle light and dark mode">Dark</button>
+                </li>
+
+                </ul>
+        </div>
+    </nav>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Language Selection Popup -->
+    <div class="win7">
+        <ul role="menu" class="lang-popup" id="lang-popup">
+            <li role="menuitem" class="lang-popup-header-item" style="pointer-events: none;">
+                <span class="lang-popup-title">Select Language</span>
+                <button id="lang-popup-close" class="lang-popup-close" aria-label="Close" style="pointer-events: auto;">&times;</button>
+            </li>
+            <li role="menuitem" class="has-divider"></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="en"><span class="flag-icon">🇬🇧</span> English</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="zh-TW"><span class="flag-icon">🇹🇼</span> 繁體中文</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="zh-CN"><span class="flag-icon">🇨🇳</span> 简体中文</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="ja"><span class="flag-icon">🇯🇵</span> 日本語</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="ko"><span class="flag-icon">🇰🇷</span> 한국어</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="ar"><span class="flag-icon">🇸🇦</span> العربية</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="he"><span class="flag-icon">🇮🇱</span> עברית</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="hi"><span class="flag-icon">🇮🇳</span> हिन्दी</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="gu"><span class="flag-icon">🇬🇺</span> ગુજરાતી</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="ne"><span class="flag-icon">🇳🇵</span> नेपाली</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="th"><span class="flag-icon">🇹🇭</span> ไทย</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="vi"><span class="flag-icon">🇻🇳</span> Tiếng Việt</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="ru"><span class="flag-icon">🇷🇺</span> Русский</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="de"><span class="flag-icon">🇩🇪</span> Deutsch</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="fr"><span class="flag-icon">🇫🇷</span> Français</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="it"><span class="flag-icon">🇮🇹</span> Italiano</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="pt"><span class="flag-icon">🇵🇹</span> Português</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="nl"><span class="flag-icon">🇳🇱</span> Nederlands</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="cs"><span class="flag-icon">🇨🇿</span> Čeština</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="el"><span class="flag-icon">🇬🇷</span> Ελληνικά</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="hu"><span class="flag-icon">🇭🇺</span> Magyar</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="id"><span class="flag-icon">🇮🇩</span> Indonesia</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="pl"><span class="flag-icon">🇵🇱</span> Polski</button></li>
+            <li role="menuitem" class="lang-option-wrapper"><button class="lang-option" data-lang="sr"><span class="flag-icon">🇷🇸</span> Српски</button></li>
+        </ul>
+    </div>
+
+    <main class="container">
+    <header class="site-header">
+        <div class="header-logo-text">
+<img src="Images/My profile picture (Dark).webp" alt="Asaph10074" class="site-avatar" id="header-avatar" width="512" height="512" fetchpriority="high" decoding="async">
+            <div class="header-text">
+                <h1 data-i18n="siteTitle">Asaph10074's Website</h1>
+                <span class="header-motto" data-i18n="siteMotto">Tech, Modding & Music</span>
+            </div>
+        </div>
+    </header>
+    <div class="project-grid">
+        <div class="win7">
+        <section class="card locked-card about-card window" id="about-card">
+            <div class="window-body has-space">
+                <h2 class="section-title" data-i18n="aboutMe">About me</h2>
+            <div class="about-profile">
+<img src="Images/My profile picture (Dark).webp" alt="Asaph10074" class="about-avatar" id="about-avatar" width="512" height="512" decoding="async">
+            </div>
+            <p class="about-bio" data-i18n="aboutText">I'm Asaph10074. In 2026 ,  I'm focusing on Technologys and computers.</p>
+            <div class="about-tags">
+                <span class="about-tag"><img class="history-icon history-icon-aero" src="icons/accessibilitycpl_326.ico" alt="" width="14" height="14" decoding="async"><img class="history-icon history-icon-m3" src="icons/screen_search_desktop_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="14" height="14" decoding="async">Software History Finder</span>
+                <span class="about-tag"><img src="icons/android_40dp_1ECC4A_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="19" height="11">Android Modder</span>
+                <span class="about-tag"><img src="icons/html5.svg" alt="" width="14" height="14">Web Developer</span>
+                <span class="about-tag"><img src="icons/lmms.svg" alt="" width="14" height="14">LMMS Music Creator</span>
+            </div>
+                </div>
+            </section>
+            </div>
+
+        <!-- Wide Cards Container -->
+        <div class="wide-cards-container">
+            <div class="win7">
+            <section class="card wide-card window" id="skills-card">
+                <div class="window-body has-space">
+                <h2 class="section-title" data-i18n="mySkills"><img class="skills-icon skills-icon-aero" src="icons/21454-check7-32.png" alt="Skills" width="24" height="24" style="vertical-align: middle; margin-right: 4px;"><img class="skills-icon skills-icon-m3" src="icons/check_40dp_73FF00_FILL0_wght400_GRAD0_opsz40.svg" alt="Skills" width="24" height="24" style="vertical-align: middle; margin-right: 4px;"> My skills</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span data-i18n="skillAndroid" class="skill-title-text"><img src="icons/android_40dp_1ECC4A_FILL0_wght400_GRAD0_opsz40.svg" alt="Android" width="16" height="16" style="vertical-align: middle; margin-right: 4px;" /> Android System Modding</span>
+                            <span class="skill-level chroma-text sparkle-rgb" style="--chroma-1: #00b894; --chroma-2: #00a381;">75%</span>
+                        </div>
+                        <div class="win7">
+                            <div role="progressbar" class="animate" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+                              <div style="width: 75%; --chroma-1: #00b894; --chroma-2: #00a381;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span data-i18n="skillKotlin"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 128 128" preserveAspectRatio="xMidYMid" style="vertical-align: middle; margin-right: 4px; transform: translateY(-1px);"><path fill="#0078d4" d="M67.328 67.331h60.669V128H67.328zm-67.325 0h60.669V128H.003zM67.328 0h60.669v60.669H67.328zM.003 0h60.669v60.669H.003z"/></svg> Multibooting Opreating system</span>
+                            <span class="skill-level chroma-text sparkle-rgb" style="--chroma-1: #0984e3; --chroma-2: #0652DD;">90%</span>
+                        </div>
+                        <div class="win7">
+                            <div role="progressbar" class="animate" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+                              <div style="width: 90%; --chroma-1: #0984e3; --chroma-2: #0652DD;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span data-i18n="skillUI" class="skill-title-text"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16" viewBox="0 0 128 128" style="vertical-align: middle; margin-right: 4px;"><defs><linearGradient id="e"><stop offset=".452" stop-color="#40b1c3"/><stop offset=".773" stop-color="#1c8090"/></linearGradient><linearGradient id="d"><stop offset="0" stop-color="#097b8f"/><stop offset="1" stop-color="#043a43"/></linearGradient><linearGradient id="c"><stop offset=".19" stop-color="#002c33"/><stop offset=".293" stop-color="#008ca3"/></linearGradient><linearGradient id="b"><stop offset=".474" stop-color="#b8f8fd"/><stop offset=".499" stop-color="#75eff8"/><stop offset="1" stop-color="#88f5fe"/></linearGradient><linearGradient id="a"><stop offset=".216" stop-color="#00d3e6"/><stop offset=".271" stop-color="#00adc9"/><stop offset="1" stop-color="#008da7"/></linearGradient><linearGradient xlink:href="#a" id="f" x1="33.814" x2="67.027" y1="13.609" y2="108.667" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 -6.148)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#b" id="g" x1=".794" x2="42.147" y1="68.252" y2="85.315" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 -6.148)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#c" id="h" x1="10.84" x2="44.09" y1="81.469" y2="96.979" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 -6.148)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="i" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 -6.148)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="j" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 10.561)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="k" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 27.27)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="l" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(1.07984 0 0 1.07984 -5.312 43.978)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#a" id="q" x1="33.814" x2="67.027" y1="13.609" y2="108.667" gradientTransform="matrix(.65576 0 0 .65576 63.156 51.356)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#b" id="r" x1=".794" x2="42.147" y1="68.252" y2="85.315" gradientTransform="matrix(.65576 0 0 .65576 63.156 51.356)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#c" id="s" x1="10.84" x2="44.09" y1="81.469" y2="96.979" gradientTransform="matrix(.65576 0 0 .65576 63.156 51.356)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="t" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(.65576 0 0 .65576 63.156 51.356)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="u" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(.65576 0 0 .65576 63.156 61.503)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="v" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(.65576 0 0 .65576 63.156 71.65)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#d" id="w" x1="29.154" x2="30.122" y1="40.757" y2="37.963" gradientTransform="matrix(.65576 0 0 .65576 63.156 81.796)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="m" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(1.0753 .09301 -.02842 1.2276 -2.273 -22.256)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="n" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(1.0753 .09301 -.02842 1.2276 -28.272 -58.993)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="o" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(1.0753 .09301 -.02842 1.2276 -28.272 -92.362)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="p" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(1.0753 .09301 -.02842 1.2276 -28.272 -75.678)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="x" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(.653 .05648 -.01726 .7455 65.002 41.573)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="y" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(.653 .05648 -.01726 .7455 49.213 19.264)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="z" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(.653 .05648 -.01726 .7455 49.213 -1)" gradientUnits="userSpaceOnUse"/><radialGradient xlink:href="#e" id="A" cx="39.282" cy="104.343" r="1.248" gradientTransform="matrix(.653 .05648 -.01726 .7455 49.213 9.132)" gradientUnits="userSpaceOnUse"/></defs><path fill="url(#f)" d="M55.084.688 4.95 17.476c-.98.328-2.08 1.491-2.08 2.525v.58l37.61 12.63v86.823c1.153.111 2.225-.127 4.045-.736l50.132-16.789c.98-.328 2.08-1.49 2.08-2.524V15.622c0-3.454-1.044-3.759-4.029-4.747L61.232.445c-2.216-.734-3.944-.495-6.148.243z"/><path fill="url(#g)" d="M2.884 104.975c0 3.3 3.29 3.898 5.69 4.692 10.216 3.383 20.412 6.83 30.654 10.13a5.743 5.743 0 0 0 2.168.25c2.848-1.236 1.906-4.47 1.925-6.871.212-26.854-.242-53.71-.012-80.564.028-3.3-3.29-3.898-5.69-4.692L6.964 17.788c-1.271-.42-1.823-.504-2.805.11-.74.463-1.288 1.347-1.288 2.104z"/><path fill="url(#h)" d="M5.497 18.606c-.287.03-.568.125-.858.306-.574.359-.823 1.11-.823 1.84l-.008 83.443c0 3.3 3.288 3.898 5.688 4.692 10.058 3.33 20.108 6.688 30.179 9.978 1.823.596 2.623-.675 2.623-2.339L8.916 105.327c-1.77-.594-2.522-1.119-2.522-3.315V81.826l6.628-2.221-6.628-2.22v-12.27l6.628-2.218-6.628-2.22v-12.27l6.628-2.218-6.628-2.221V31.7l6.626-2.221-6.626-2.219v-8.571a2.634 2.634 0 0 0-.897-.083zm.897 29.802 35.904 12.03v-.002zm0 16.708 35.904 12.03v-.002zm33.947 6.932 1.957.658v-.002z"/><path fill="url(#i)" d="M13.067 29.464 6.394 31.7l35.904 12.028v-4.44z"/><path fill="url(#j)" d="m13.067 46.173-6.673 2.236 35.904 12.028v-4.44z"/><path fill="url(#k)" d="m13.067 62.881-6.673 2.236 35.904 12.028v-4.44z"/><path fill="url(#l)" d="m13.067 79.59-6.673 2.235 35.904 12.028v-4.44z"/><path fill="#d5f7fa" d="M13.123 56.346a2.486 1.936 83.668 0 1-1.943 2.34 2.486 1.936 83.668 0 1-1.943-2.614 2.486 1.936 83.668 0 1 1.943-2.34 2.486 1.936 83.668 0 1 1.943 2.614zm0-16.684a2.486 1.936 83.668 0 1-1.943 2.34 2.486 1.936 83.668 0 1-1.943-2.615 2.486 1.936 83.668 0 1 1.943-2.339 2.486 1.936 83.668 0 1 1.943 2.614zm0 33.369a2.486 1.936 83.668 0 1-1.943 2.339 2.486 1.936 83.668 0 1-1.943-2.614 2.486 1.936 83.668 0 1 1.943-2.339 2.486 1.936 83.668 0 1 1.943 2.614zm26 36.737a2.486 1.936 83.668 0 1-1.944 2.339 2.486 1.936 83.668 0 1-1.943-2.614 2.486 1.936 83.668 0 1 1.943-2.339 2.486 1.936 83.668 0 1 1.943 2.614z"/><path fill="#1c8090" d="M39.687 65.462a.73.568 83.668 0 1-.571.687.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.686.73.568 83.668 0 1 .57.767zm0 3.24a.73.568 83.668 0 1-.571.687.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.768zm0-6.48a.73.568 83.668 0 1-.571.688.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.768zm0 19.958a.73.568 83.668 0 1-.571.687.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.768zm0 3.24a.73.568 83.668 0 1-.571.686.73.568 83.668 0 1-.57-.767.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.767zm0-6.48a.73.568 83.668 0 1-.571.687.73.568 83.668 0 1-.57-.767.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.767zm0-30.195a.73.568 83.668 0 1-.571.687.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.768zm0 3.24a.73.568 83.668 0 1-.571.686.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.768zm0-6.48a.73.568 83.668 0 1-.571.687.73.568 83.668 0 1-.57-.768.73.568 83.668 0 1 .57-.687.73.568 83.668 0 1 .57.768z"/><path fill="url(#m)" d="M38.524 109.726a1.72 1.34 83.668 0 1-1.345 1.618 1.72 1.34 83.668 0 1-1.344-1.809 1.72 1.34 83.668 0 1 1.344-1.618 1.72 1.34 83.668 0 1 1.345 1.808z"/><path fill="url(#n)" d="M12.524 72.989a1.72 1.34 83.668 0 1-1.344 1.618 1.72 1.34 83.668 0 1-1.345-1.808 1.72 1.34 83.668 0 1 1.345-1.619 1.72 1.34 83.668 0 1 1.344 1.809z"/><path fill="url(#o)" d="M12.524 39.62a1.72 1.34 83.668 0 1-1.344 1.618 1.72 1.34 83.668 0 1-1.345-1.808 1.72 1.34 83.668 0 1 1.345-1.619 1.72 1.34 83.668 0 1 1.344 1.809z"/><path fill="url(#p)" d="M12.524 56.304a1.72 1.34 83.668 0 1-1.344 1.618 1.72 1.34 83.668 0 1-1.345-1.808 1.72 1.34 83.668 0 1 1.345-1.618 1.72 1.34 83.668 0 1 1.344 1.808z"/><path fill="url(#q)" d="M99.833 55.507 69.39 65.702c-.595.199-1.263.905-1.263 1.533v.352l22.839 7.67v52.726c.7.067 1.351-.077 2.456-.447l30.445-10.195c.595-.2 1.263-.906 1.263-1.534V64.576c0-2.098-.634-2.283-2.447-2.883l-19.115-6.334c-1.346-.445-2.395-.3-3.734.148z"/><path fill="url(#r)" d="M68.133 118.838c0 2.004 1.998 2.367 3.456 2.85 6.204 2.053 12.395 4.147 18.615 6.151.422.136.873.183 1.317.151 1.73-.75 1.158-2.714 1.17-4.172.127-16.307-.148-32.617-.008-48.924.017-2.004-1.998-2.368-3.456-2.85l-18.616-6.153c-.772-.255-1.107-.306-1.703.067-.45.281-.782.818-.782 1.278z"/><path fill="url(#s)" d="M69.72 66.388a1.197 1.197 0 0 0-.52.186c-.35.218-.5.674-.5 1.117l-.005 50.673c0 2.004 1.996 2.367 3.454 2.85 6.108 2.022 12.211 4.061 18.327 6.06 1.107.36 1.593-.411 1.593-1.421l-20.272-6.801c-1.075-.36-1.532-.68-1.532-2.014V104.78l4.025-1.349-4.025-1.348v-7.45l4.025-1.348-4.025-1.349v-7.45l4.025-1.348-4.025-1.348v-7.45l4.024-1.35-4.024-1.347v-5.205a1.6 1.6 0 0 0-.545-.05zm.545 18.098 21.804 7.305zm0 10.146 21.804 7.306v-.001zm20.615 4.21 1.189.4v-.002z"/><path fill="url(#t)" d="m74.317 72.982-4.052 1.357 21.804 7.305v-2.696z"/><path fill="url(#u)" d="m74.317 83.129-4.052 1.357 21.804 7.305v-2.696z"/><path fill="url(#v)" d="m74.317 93.275-4.052 1.358 21.804 7.304v-2.696z"/><path fill="url(#w)" d="m74.317 103.422-4.052 1.357 21.804 7.305v-2.696z"/><path fill="#d5f7fa" d="M74.351 89.307a1.51 1.175 83.668 0 1-1.18 1.42 1.51 1.175 83.668 0 1-1.18-1.587 1.51 1.175 83.668 0 1 1.18-1.42 1.51 1.175 83.668 0 1 1.18 1.587zm0-10.132a1.51 1.175 83.668 0 1-1.18 1.42 1.51 1.175 83.668 0 1-1.18-1.587 1.51 1.175 83.668 0 1 1.18-1.42 1.51 1.175 83.668 0 1 1.18 1.587zm0 20.264a1.51 1.175 83.668 0 1-1.18 1.42 1.51 1.175 83.668 0 1-1.18-1.587 1.51 1.175 83.668 0 1 1.18-1.42 1.51 1.175 83.668 0 1 1.18 1.587zm15.79 22.31a1.51 1.175 83.668 0 1-1.18 1.42 1.51 1.175 83.668 0 1-1.181-1.587 1.51 1.175 83.668 0 1 1.18-1.42 1.51 1.175 83.668 0 1 1.18 1.586z"/><path fill="#1c8090" d="M90.483 94.843a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.418.443.345 83.668 0 1 .347.467zm0 1.967a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466zm0-3.935a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466zm0 12.12a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466zm0 1.967a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466zm0-3.934a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.418.443.345 83.668 0 1 .347.467zm0-18.338a.443.345 83.668 0 1-.347.418.443.345 83.668 0 1-.346-.467.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466zm0 1.968a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466zm0-3.935a.443.345 83.668 0 1-.347.417.443.345 83.668 0 1-.346-.466.443.345 83.668 0 1 .346-.417.443.345 83.668 0 1 .347.466z"/><path fill="url(#x)" d="M89.777 121.723a1.045.813 83.668 0 1-.817.982 1.045.813 83.668 0 1-.816-1.098 1.045.813 83.668 0 1 .816-.982 1.045.813 83.668 0 1 .817 1.098z"/><path fill="url(#y)" d="M73.988 99.413a1.045.813 83.668 0 1-.817.983 1.045.813 83.668 0 1-.816-1.098 1.045.813 83.668 0 1 .816-.983 1.045.813 83.668 0 1 .817 1.098z"/><path fill="url(#z)" d="M73.988 79.15a1.045.813 83.668 0 1-.817.982 1.045.813 83.668 0 1-.816-1.098 1.045.813 83.668 0 1 .816-.983 1.045.813 83.668 0 1 .817 1.098z"/><path fill="url(#A)" d="M73.988 89.281a1.045.813 83.668 0 1-.817.983 1.045.813 83.668 0 1-.816-1.098 1.045.813 83.668 0 1 .816-.983 1.045.813 83.668 0 1 .817 1.098z"/></svg> Playing Virtual Machines</span>
+                            <span class="skill-level chroma-text sparkle-rgb" style="--chroma-1: #55efc4; --chroma-2: #00cec9;">85%</span>
+                        </div>
+                        <div class="win7">
+                            <div role="progressbar" class="animate" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
+                              <div style="width: 85%; --chroma-1: #55efc4; --chroma-2: #00cec9;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span data-i18n="skillWeb" class="skill-title-text"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 520" width="16" height="16" style="vertical-align: middle; margin-right: 4px;"><path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" /><path fill="#ef652a" d="M226 472l149-41 35-394H226" /><path fill="#ecedee" d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"/><path fill="#fff" d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"/></svg> Web Development</span>
+                            <span class="skill-level chroma-text sparkle-rgb" style="--chroma-1: #e17055; --chroma-2: #d63031;">80%</span>
+                        </div>
+                        <div class="win7">
+                            <div role="progressbar" class="animate" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                              <div style="width: 80%; --chroma-1: #e17055; --chroma-2: #d63031;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span data-i18n="skillUIDesign" class="skill-title-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" style="vertical-align: middle; margin-right: 4px;"><path fill="#264de4" d="M71.357 460.819 30.272 0h451.456l-41.129 460.746L255.724 512z"/><path fill="#2965f1" d="m405.388 431.408 35.148-393.73H256v435.146z"/><path fill="#ebebeb" d="m124.46 208.59 5.065 56.517H256V208.59zm-5.041-57.875H256V94.197H114.281zM256 355.372l-.248.066-62.944-16.996-4.023-45.076h-56.736l7.919 88.741 115.772 32.14.26-.073z"/><path fill="#fff" d="M255.805 208.59v56.517H325.4l-6.56 73.299-63.035 17.013v58.8l115.864-32.112.85-9.549 13.28-148.792 1.38-15.176 10.203-114.393H255.805v56.518h79.639L330.3 208.59z"/></svg> UI Design</span>
+                            <span class="skill-level chroma-text sparkle-rgb" style="--chroma-1: #ff6b6b; --chroma-2: #2ecc71; --chroma-3: #0984e3;">95%</span>
+                        </div>
+                        <div class="win7">
+                            <div role="progressbar" class="animate" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95">
+                              <div style="width: 95%; --chroma-1: #ff6b6b; --chroma-2: #2ecc71; --chroma-3: #0984e3;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            </div>
+
+            <div class="win7">
+            <section class="card wide-card gallery-card-enhanced window" id="gallery-card">
+                <div class="window-body has-space">
+                    <h2 class="section-title gallery-title" data-i18n="phoneCard"><img src="icons/android_40dp_1ECC4A_FILL0_wght400_GRAD0_opsz40.svg" alt="Android" width="18" height="18" style="vertical-align: middle; margin-right: 6px; flex-shrink: 0;" /> My phones</h2>
+                <div class="gallery-header">
+                </div>
+                <div class="gallery-description">
+                    <p>This Samsung model is using a modified version of the One UI 8 based on Android 16. It is for the <b>Samsung Galaxy A52s</b> . In this Samsung model, this phone's latest software is One UI 6.1 , you cannot update to One UI 8 automaticly , you need to flash a custom rom called <b>UN1CA</b> to Upgrade One UI 8 on this device. Go to <a href='https://github.com/salvogiangri/UN1CA' target='_blank' rel='noopener noreferrer'>This Github Repository</a> to see how this project was made. This custom rom is not only for this model , there are more models like the <b>Samsung Galaxy A73, and more.</b> This custom rom has also included the <b>Galaxy S Series Features </b> like : <b> Galaxy ai , Samsung dex ... and more. </b></p>
+                </div>
+                <div class="image-gallery-enhanced">
+                    <div class="gallery-item-enhanced" data-index="0" data-caption="Home Screen">
+<img src="Images/1.webp" alt="UN1CA ROM Screenshot 1 - Home Screen" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="1" data-caption="Settings Menu">
+<img src="Images/2.webp" alt="UN1CA ROM Screenshot 2 - Settings" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="2" data-caption="App Drawer">
+<img src="Images/3.webp" alt="UN1CA ROM Screenshot 3 - Apps" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="3" data-caption="Customization">
+<img src="Images/4.webp" alt="UN1CA ROM Screenshot 4 - Themes" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="4" data-caption="Performance">
+<img src="Images/5.webp" alt="UN1CA ROM Screenshot 5 - Performance" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="5" data-caption="Final Look">
+<img src="Images/6.webp" alt="UN1CA ROM Screenshot 6 - Final Look" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                </div>
+            </section>
+            </div>
+        </div>
+
+
+        <!-- Bonus UN1CA Card (Separate) -->
+        <div class="win7">
+        <section class="card bonus-un1ca-card window" id="bonus-un1ca-card">
+            <div class="window-body">
+                <h2 class="section-title bonus-un1ca-title"><img src="icons/android_40dp_1ECC4A_FILL0_wght400_GRAD0_opsz40.svg" alt="Android" width="18" height="18" style="vertical-align: middle; margin-right: 6px; flex-shrink: 0;" /> Bonus: Very Hard to Find One UI 9 for Samsung A52s</h2>
+                <p style="margin-bottom: 10px;">A very hard to find <b>One UI 9</b> custom ROM for the <b>Samsung Galaxy A52s</b>. Found via TikTok <a href='https://www.tiktok.com/@dude802_tech/video/7696541238358478112' target='_blank' rel='noopener noreferrer'>@dude802_tech</a>. Download link: <a href='https://pub-6767d80b221d428f97378974ab2f32f0.r2.dev/index.html' target='_blank' rel='noopener noreferrer'>Click here</a>.</p>
+                <div class="gallery-description" style="margin-bottom: 12px;">
+                    <p>This bonus card links additional resources for the UN1CA custom ROM project, including a hard-to-find One UI 9 build for the Galaxy A52s.</p>
+                </div>
+                <div class="image-gallery-enhanced">
+                    <div class="gallery-item-enhanced" data-index="8" data-caption="Bonus - Very Hard to Find One UI 9" style="transition: all 0.2s ease; cursor: pointer; position: relative;">
+                        <img src="Images/7.jpeg" alt="UN1CA Bonus - Very Hard to Find One UI 9 for Samsung A52s" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%;">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="9" data-caption="Download Link" style="transition: all 0.2s ease; cursor: pointer; position: relative;">
+                        <img src="Images/8.jpeg" alt="Download Link" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%;">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="10" data-caption="TikTok Source" style="transition: all 0.2s ease; cursor: pointer; position: relative;">
+                        <img src="Images/9.jpeg" alt="TikTok Source" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%;">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="11" data-caption="Extra Screenshot" style="transition: all 0.2s ease; cursor: pointer; position: relative;">
+                        <img src="Images/10.jpeg" alt="Extra Screenshot" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%;">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="12" data-caption="Image 11" style="transition: all 0.2s ease; cursor: pointer; position: relative;">
+                        <img src="Images/11.jpeg" alt="Image 11" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%;">
+                    </div>
+                    <div class="gallery-item-enhanced" data-index="13" data-caption="Image 12" style="transition: all 0.2s ease; cursor: pointer; position: relative;">
+                        <img src="Images/12.jpeg" alt="Image 12" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- New Music Player Card -->
+        <div class="win7">
+        <section class="card music-card window" id="music-card">
+            <div class="window-body has-space">
+            <h2 class="section-title music-title"><img class="music-icon music-icon-aero" src="icons/wmplayer_IDR_MAINFRAME-32.webp" alt="" width="18" height="18"><img class="music-icon music-icon-m3" src="icons/library_music_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="18" height="18"><span data-i18n="musicTitle">Music Player</span></h2>
+            <div class="music-player">
+                <div class="music-info">
+                    <div class="song-title">Music made with LMMS by:</div>
+                    <div class="artist">Asaph10074</div>
+                </div>
+                <audio id="music-player-audio" preload="none">
+                    <source src="Music Playlist/Chill Tech Vibes 2026.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="music-player-controls">
+                    <button id="audioBack" title="Previous song">
+                        <img class="mp-img-m3" src="/Images/music_player/music_player_back.png" alt="Music Player - Back Button">
+                        <span class="mp-glyph mp-glyph-back" aria-hidden="true"></span>
+                    </button>
+
+                    <button id="audioPlayPause" title="Play / Pause">
+                        <img class="mp-img-m3" src="/Images/music_player/music_player_play.png" id="audioPlayPauseImage" alt="Music Player - Play / Pause Button">
+                        <span class="mp-glyph mp-glyph-play" aria-hidden="true"></span>
+                        <span class="mp-glyph mp-glyph-pause" aria-hidden="true"></span>
+                    </button>
+
+                    <button id="audioForward" title="Next song">
+                        <img class="mp-img-m3" src="/Images/music_player/music_player_forward.png" alt="Music Player - Forward Button">
+                        <span class="mp-glyph mp-glyph-forward" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="song-title-row" role="group" aria-label="Track: swipe or use the left and right arrow keys to change track">
+                    <img class="song-icon song-icon-aero" src="icons/DXPTaskRingtone_50.webp" alt="" width="16" height="16">
+                    <img class="song-icon song-icon-m3" src="icons/music_note_2_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="16" height="16">
+                    <div class="now-playing" aria-live="polite">The G key beat</div>
+                </div>
+                <div class="progress-container">
+                    <span class="current-time">0:00</span>
+                    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div style="width: 0%"></div>
+                    </div>
+                    <span class="total-time">0:00</span>
+                </div>
+                <div class="mp-sliders-row">
+                    <div class="volume-control">
+                        <img class="mp-vol-icon mp-vol-on" src="icons/SndVolSSO_124.ico" alt="" width="16" height="16" aria-hidden="true">
+                        <img class="mp-vol-icon mp-vol-off" src="icons/SndVolSSO_120.ico" alt="" width="16" height="16" aria-hidden="true">
+                        <img class="mp-vol-icon mp-vol-m3 mp-vol-on" src="icons/volume_up_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="18" height="18" aria-hidden="true">
+                        <img class="mp-vol-icon mp-vol-m3 mp-vol-off" src="icons/no_sound_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="18" height="18" aria-hidden="true">
+                        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" aria-label="Volume">
+                    </div>
+                    <button id="download-btn" data-i18n="download"><span class="dl-ico-wrap"><img class="dl-ico dl-ico-netshell" src="icons/netshell_2301.ico" alt="" width="18" height="18" decoding="async"><img class="dl-ico dl-ico-m3" src="icons/download_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="18" height="18" decoding="async"></span>Download</button>
+                    </div>
+                </div>
+                </div>
+        </section>
+        </div>
+
+        <!-- UWP Windows Explorer Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="uwp-card">
+            <div class="window-body has-space">
+            <h2 class="section-title"><img class="explorer-icon" src="icons/images.png" alt="" width="32" height="32" style="vertical-align: middle; margin-right: 6px;"> UWP Windows Explorer</h2>
+                <p class="about-bio">The UWP (Universal Windows Platform) version of Windows Explorer is a modern, touch-friendly file manager introduced with Windows 10. It features a clean interface with a hamburger menu, quick access to frequently used folders, and seamless integration with OneDrive and cloud services. Unlike the classic Win32 Explorer, the UWP version was designed for tablets and touch devices, offering larger touch targets and a simplified navigation experience.
+                <p class="about-bio"><b>Step 1.</b> Right-click on your desktop, select <b>New</b>, and then choose <b>Shortcut</b> from the context menu.</p>
+                <p class="about-bio"><b>Step 2.</b> paste this on Windows 10 Version 1709 or later :explorer.exe shell AppsFolder\c5e2524a-ea46-4f67-841f-6a9465d9d515_cw5n1h2txyewy!App</p>
+                <p class="about-bio"><b>Step 3.</b> Click </b>Finish</b> to create the shortcut.</p>
+                <p class="about-bio"><b>Step 4.</b> Right-click the newly created shortcut and select <b>Properties</b>.</p>
+                <p class="about-bio"><b>Step 5.</b> In the <b>Target</b> field, check if the path is correct.</p>
+                <p class="about-bio"><b>Step 6.</b> Click <b>Apply</b> and then <b>OK</b> to save the changes.</p>
+                <p class="about-bio">Now, when you double-click the shortcut, it will open the UWP Windows Explorer 
+            </div>
+        </section>
+        </div>
+
+        <!-- NXTLockdownPolicy Card -->
+        <div class="win7">
+        <section class="card window" id="nxtlockdownpolicy-card">
+            <div class="window-body has-space">
+            <h2 class="section-title"><img class="nxt-icon nxt-icon-aero" src="icons/SecEdit_7000.ico" alt="NXTLockdownPolicy" width="30" height="30" style="vertical-align: middle; margin-right: 6px;"><img class="nxt-icon nxt-icon-m3" src="icons/admin_panel_settings_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="NXTLockdownPolicy" width="30" height="30" style="vertical-align: middle; margin-right: 6px;"> NXTLockdownPolicy</h2>
+                <p class="about-bio">This happens to my computer before , Non Microsoft Apps blocked with tips "Your organization used App Control for Business to block this app and drivers can't be loaded with 0xC000026C. NXTLockdownPolicy is supposed to be an application control policy designed to enhance security by restricting the execution of applications and drivers based on specific criteria. These policies are typically used in enterprise environments to prevent una uthorized software from running and to reduce the risks associated with malware or unapproved applications and is related to Windows application control and lockdown policies. For more information about application control policy problems after updates, see the <a href='https://learn.microsoft.com/en-us/answers/questions/2355468/an-application-control-policy-problem-after-update' target='_blank' rel='noopener noreferrer'>Microsoft Learn discussion</a>.</p>
+                </div>
+        </section>
+        </div>
+
+        <!-- SlideToShutdown.exe Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="slidetoshutdown-card">
+            <div class="window-body has-space">
+            <h2 class="section-title">
+            <span class="sts-icon-pair">
+            <svg class="sts-arrow sts-arrow-aero" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="stsArrowAero" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--sts-p1,#e81123)"/><stop offset="45%" stop-color="var(--sts-p2,#e81123)"/><stop offset="55%" stop-color="var(--sts-p3,#e81123)"/><stop offset="100%" stop-color="var(--sts-p4,#e81123)"/></linearGradient></defs><path fill="url(#stsArrowAero)" d="M9.75 2.6h4.5v9.4h5.75L12 21.4 4 12h5.75z"/></svg>
+            <svg class="sts-arrow sts-arrow-skeuo" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="stsArrowSkeuo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--sts-p1,#e81123)"/><stop offset="12%" stop-color="var(--sts-p2,#e81123)"/><stop offset="55%" stop-color="var(--sts-p3,#e81123)"/><stop offset="100%" stop-color="var(--sts-p4,#e81123)"/></linearGradient></defs><path fill="url(#stsArrowSkeuo)" d="M9.75 2.6h4.5v9.4h5.75L12 21.4 4 12h5.75z"/></svg>
+            <svg class="sts-arrow sts-arrow-m3" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="stsArrowM3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--sts-p1,#e81123)"/><stop offset="50%" stop-color="var(--sts-p2,#e81123)"/><stop offset="100%" stop-color="var(--sts-p3,#e81123)"/></linearGradient></defs><path fill="url(#stsArrowM3)" d="M9.9 4.5a1.1 1.1 0 0 1 1.1-1.1h2a1.1 1.1 0 0 1 1.1 1.1v7.5h3.408a1.1 1.1 0 0 1 .834 1.815l-5.43 6.323a1.2 1.2 0 0 1-1.824 0l-5.43-6.323a1.1 1.1 0 0 1 .834-1.815h3.408z"/></svg>
+            <svg class="sts-power sts-power-aero" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="2.62 -1.13 18.77 18.77" aria-hidden="true"><defs><linearGradient id="stsPowAero" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--sts-p1,#e81123)"/><stop offset="45%" stop-color="var(--sts-p2,#e81123)"/><stop offset="55%" stop-color="var(--sts-p3,#e81123)"/><stop offset="100%" stop-color="var(--sts-p4,#e81123)"/></linearGradient></defs><path fill="url(#stsPowAero)" d="M14.163 1.943A7 7 0 1 1 9.837 1.943L10.702 4.606A4.2 4.2 0 1 0 13.298 4.606ZM12 0.9H12A1.4 1.4 0 0 1 13.4 2.3V7.2A1.4 1.4 0 0 1 12 8.6H12A1.4 1.4 0 0 1 10.6 7.2V2.3A1.4 1.4 0 0 1 12 0.9Z"/></svg>
+            <svg class="sts-power sts-power-skeuo" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="2.62 -1.13 18.77 18.77" aria-hidden="true"><defs><linearGradient id="stsPowSkeuo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--sts-p1,#e81123)"/><stop offset="12%" stop-color="var(--sts-p2,#e81123)"/><stop offset="55%" stop-color="var(--sts-p3,#e81123)"/><stop offset="100%" stop-color="var(--sts-p4,#e81123)"/></linearGradient></defs><path fill="url(#stsPowSkeuo)" d="M14.163 1.943A7 7 0 1 1 9.837 1.943L10.702 4.606A4.2 4.2 0 1 0 13.298 4.606ZM12 0.9H12A1.4 1.4 0 0 1 13.4 2.3V7.2A1.4 1.4 0 0 1 12 8.6H12A1.4 1.4 0 0 1 10.6 7.2V2.3A1.4 1.4 0 0 1 12 0.9Z"/></svg>
+            <svg class="sts-power sts-power-m3" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="2.62 -1.13 18.77 18.77" aria-hidden="true"><defs><linearGradient id="stsPowM3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--sts-p1,#e81123)"/><stop offset="50%" stop-color="var(--sts-p2,#e81123)"/><stop offset="100%" stop-color="var(--sts-p3,#e81123)"/></linearGradient></defs><path fill="url(#stsPowM3)" d="M14.163 1.943A7 7 0 1 1 9.837 1.943L10.702 4.606A4.2 4.2 0 1 0 13.298 4.606ZM12 0.9H12A1.4 1.4 0 0 1 13.4 2.3V7.2A1.4 1.4 0 0 1 12 8.6H12A1.4 1.4 0 0 1 10.6 7.2V2.3A1.4 1.4 0 0 1 12 0.9Z"/></svg>
+            </span>
+            SlideToShutdown.exe</h2>
+                <p class="about-bio">SlideToShutdown.exe is a hidden utility built into Windows 8, 8.1, and 10. When launched, it displays a lock screen with a "slide to shut down" gesture, similar to the swipe-to-power-off feature on mobile devices. It can be run directly from the System32 folder or pinned to the taskbar for quick access. This tool is especially useful for touchscreen devices and tablets, providing an elegant and intuitive way to power down your PC.</p>
+            <p class="about-bio"><b>Step 1.</b> Press <b>Win + R</b> to open the Run dialog, type <b>SlideToShutdown.exe</b>, and hit Enter. The screen will dim, and a slide-down interface will appear.</p>
+            <p class="about-bio"><b>Step 2.</b> <b>Click and Hold</b> to slide the piturce <b>Down</b> with your lockscreen wallpaper , then drag it down to the bottom of the screen. Release the mouse button to shutdown your computer.</p>
+        </div>
+        </section>
+        </div>
+
+        <!-- edit.exe Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="edit-card">
+            <div class="window-body has-space">
+            <h2 class="section-title"><img src="icons/edit.svg" alt="edit.exe" width="18" height="18" style="vertical-align: middle; margin-right: 4px;"> edit.exe (MS-DOS Editor)</h2>
+                <p class="about-bio">edit.exe is the MS-DOS Editor, a classic text editor that runs inside the Command Prompt (cmd.exe). Originally introduced with MS-DOS 5.0 in the June of 1991, it provides a full-screen text editing interface with menus, mouse support, and keyboard shortcuts. Microsoft recently brought it back in newer Windows 11 builds, allowing users to launch it directly from the command line by typing "edit". It's a lightweight and nostalgic tool for editing text files, batch scripts, and configuration files without needing a modern IDE.</p>
+                    <p class="about-bio"><b>Step 1.</b> Open the Command Prompt (cmd.exe) by pressing <b>Win + R</b> and typing <b>cmd</b>.</p>
+                    <p class="about-bio"><b>Step 2.</b> Type <b>edit</b> and press Enter to launch the Command prompt based Editor.</p>
+                </div>
+        </section>
+        </div>
+
+        <!-- Hidden MS-DOS Icons Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="msdos-icons-card">
+            <div class="window-body has-space">
+            <h2 class="section-title"><img class="msdos-icon" src="icons/msdos_pifmgr.png" alt="MS-DOS" width="18" height="18" style="vertical-align: middle; margin-right: 4px;"> The Hidden MS-DOS Icons  Still Here After All These Years</h2>
+                <p class="about-bio">Deep inside every modern Windows installation, some very old icons from the MS-DOS era are still hiding. These DLL files have shipped with Windows since the Windows 95 days (and even earlier), and they are still sitting in your System32 folder today  you can view them with any icon viewer, or use them in shortcuts via <b>%windir%\System32\pifmgr.dll</b> and others :</p>
+                <ul class="about-bio" style="margin: 8px 0; padding-left: 24px;">
+                    <li><b>pifmgr.dll</b>  Windows 95 era icons, including the classic <b>MS-DOS</b> icon (the one used for this card!).</li>
+                    <li><b>moricons.dll</b>  icons even older than Windows 95, dating back to the Windows 3.x / MS-DOS days.</li>
+                    <li><b>mmcndmgr.dll</b>  old Microsoft Management Console node manager icons.</li>
+                    <li><b>compstui.dll</b>  old common property sheet UI icons, still used by printer drivers.</li>
+                </ul>
+                    <p class="about-bio">Microsoft keeps shipping them for backwards compatibility, so even on Windows 11 these little pixel-art relics from the DOS age are still one right-click away. A true piece of living history!</p>
+                    <p class="about-bio"><b>Step 1.</b> Create a new folder in your <b>Desktop</b> .</p>
+                    <p class="about-bio"><b>Step 2.</b> Right-click the folder, select <b>Properties</b>, and click the <b>Customize</b> tab. Click <b>Change Icon</b>.</p>
+                    </div>
+        </section>
+        </div>
+
+        <!-- Microsoft's Hidden Antivirus Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="msert-card">
+            <div class="window-body has-space">
+            <h2 class="section-title"><img class="msert-icon" src="icons/Microsoft_Defender_Icon_Logo_2025_English.svg.webp" alt="Microsoft Defender" width="18" height="18" style="vertical-align: middle; margin-right: 4px;"><img class="msert-icon" src="icons/Microsoft_Windows_Malicious_Software_Removal_Tool_2006.webp" alt="Microsoft Safety Scanner" width="18" height="18" style="vertical-align: middle; margin-right: 4px;"> Microsoft's Hidden Offline Antivirus</h2>
+                <p class="about-bio">Windows already ships two free antivirus tools that Microsoft almost never mentions. They run the same scanning engine, they cost nothing, and neither one replaces Windows Defender  they are the on-demand companion you reach for when Defender is running but you still do not trust the machine.</p>
+                <ul class="about-bio" style="margin: 8px auto; padding-left: 24px;">
+                    <li><b>Microsoft Safety Scanner</b>  the standalone download, and the one that actually is <b>msert.exe</b>. It looks for all kinds of malware instead of a fixed list of families, offers quick, full and custom scans, and installs nothing at all: the executable <em>is</em> the tool, so deleting the file removes it.</li>
+                    <li><b>Windows Malicious Software Removal Tool (MSRT)</b>  the same engine on a schedule. Windows Update delivers it on the <b>second Tuesday of every month</b>, it runs quietly in the background, and it only speaks up if it finds something. It targets <b>prevalent</b> malware families specifically, which is exactly why it is no substitute for a real antivirus. Its standalone package ships as <b>Windows-KB890830-x64-V5.145.exe</b> (KB890830).</li>
+                </ul>
+                <p class="about-bio"><b>Running MSRT from the command line.</b> Worth being precise here: the <b>Safety Scanner</b> is download-and-click only  Microsoft documents it as a GUI tool with no switches of its own, so the <b>msert.exe /F</b> commands you find on blogs are not Microsoft's. The <b>MSRT</b> is the one with an officially documented switch table, in KB890830. Download the standalone MSRT package, open an elevated Command Prompt  right-click <b>cmd.exe</b> and choose <b>Run as administrator</b>  change into the folder, and force an extended scan that also cleans what it finds :</p>
+<pre class="reg-snippet">cd %USERPROFILE%\Downloads
+Windows-KB890830-x64-V5.145.exe /F:Y</pre>
+                <p class="about-bio">That is every switch Microsoft actually documents for it :</p>
+                <ul class="about-bio" style="margin: 8px auto; padding-left: 24px;">
+                    <li><code class="reg-path">/F</code>  forces an extended scan of the computer.</li>
+                    <li><code class="reg-path">/F:Y</code>  the same extended scan, and cleans any infections that are found automatically.</li>
+                    <li><code class="reg-path">/N</code>  detect-only mode: the malicious software is reported to you, but nothing is removed.</li>
+                    <li><code class="reg-path">/Q</code> (or <code class="reg-path">/quiet</code>)  quiet mode; suppresses the user interface entirely.</li>
+                    <li><code class="reg-path">/?</code>  displays a dialog box that lists the command-line switches.</li>
+                </ul>
+                <p class="about-bio">Results land in <b>%SYSTEMROOT%\debug\msert.log</b> for the Safety Scanner, and <b>%windir%\debug\mrt.log</b> for the MSRT. Official pages : <a href="https://learn.microsoft.com/en-us/defender-endpoint/safety-scanner-download" target="_blank" rel="noopener noreferrer">Safety Scanner</a> &middot; <a href="https://www.microsoft.com/en-us/download/details.aspx?id=9905" target="_blank" rel="noopener noreferrer">MSRT (64-bit)</a> &middot; <a href="https://support.microsoft.com/en-us/topic/remove-specific-prevalent-malware-with-windows-malicious-software-removal-tool-kb890830-ba51b71f-39cd-cdec-73eb-61979b0661e0" target="_blank" rel="noopener noreferrer">KB890830</a></p>
+                <p class="about-bio"><b>Bonus.</b> There is a third rescuer already sitting inside Windows, and it is the only one of the three that can actually see a rootkit. <b>Microsoft Defender Offline</b> reboots the machine into the Windows Recovery Environment and runs a quick scan from <em>outside</em> the Windows kernel, so malware that hides from a running system  rootkits, bootkits, anything that has taken over the master boot record  has nowhere left to sit. It is the escalation step for when <b>msert.exe</b> and the MSRT both come back clean and you still do not believe it.</p>
+                <p class="about-bio"><b>Step 1.</b> Save your work. This one restarts the machine.</p>
+                <p class="about-bio"><b>Step 2.</b> Open <b>Windows Security</b> &rarr; <b>Virus &amp; threat protection</b> &rarr; <b>Scan options</b> &rarr; pick <b>Microsoft Defender Offline scan</b> &rarr; <b>Scan now</b>.</p>
+                <p class="about-bio"><b>Step 3.</b> Or skip the GUI entirely and trigger the same reboot from an elevated PowerShell :</p>
+<pre class="reg-snippet">Start-MpWDOScan</pre>
+                <p class="about-bio">It takes roughly <b>15 minutes</b> and then boots back into Windows by itself. Results show up under <b>Protection history</b>. Worth knowing: offline mode only ever runs a <b>quick</b> scan  there is deliberately no full or custom option.</p>
+                <p class="about-bio">And one gotcha that costs people an hour : if the <b>Windows Recovery Environment</b> happens to be disabled, the offline scan will not run and Windows reports no error at all  you just restart into normal Windows and nothing happened. Check it and turn it back on with :</p>
+<pre class="reg-snippet">reagentc /info
+reagentc /enable</pre>
+                <p class="about-bio">Microsoft's own notes on it are at <a href="https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-offline" target="_blank" rel="noopener noreferrer">learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-offline</a>.</p>
+            </div>
+        </section>
+        </div>
+
+        <!-- ExplorerPatcher Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="explorerpatcher-card">
+            <div class="window-body has-space">
+            <h2 class="section-title"><img class="ep-icon" src="icons/explorerpatcher-icon.png" alt="ExplorerPatcher" width="18" height="18" style="vertical-align: middle; margin-right: 6px;"> ExplorerPatcher</h2>
+            <p class="about-bio" >The Project from github : <a href="https://github.com/valinet/explorerpatcher/" target="_blank" rel="noopener noreferrer">https://github.com/valinet/explorerpatcher/</a></p> 
+            <p class="about-bio">ExplorerPatcher is a free, open-source utility that brings back classic Windows 10 functionality to Windows 11. It can restore the Windows 10 taskbar, system tray, File Explorer UI, and more  all with a familiar right-click "Properties" window for tweaking everything. It is a must-have tool for anyone who prefers the old Windows look and feel.
+                    
+                </p>
+                <p class="about-bio">Bonus: someone discovered a hidden registry value that reverts the Notification Center itself to the classic Windows 10 UI  no third-party tools needed. Open <b>regedit</b>, go to:</p>
+                <p class="about-bio" style="text-align: justify;"><code class="reg-path">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Center</code></p>
+                <div class="ep-reg-row">
+                    <div class="ep-reg-col">
+                        <ul class="about-bio" style="margin: 8px auto; padding-left: 24px;">
+                            <li>Create a new <b>DWORD (32-bit) Value</b> named <b><code class="reg-path">UseLiteLayout</code></b>.</li>
+                            <li>Set it to <b>1</b> for the <b>Windows 10</b> Notification Center UI.</li>
+                            <li>Set it to <b>0</b> for the <b>Windows 11</b> Notification Center UI (default).</li>
+                        </ul>
+                        <p class="about-bio">Or save this as a <b>.reg</b> file and double-click it:</p>
+<pre class="reg-snippet">Windows Registry Editor Version 5.00
+    
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Center]
+    "UseLiteLayout"=dword:00000001</pre>
+
+                        <p class="about-bio">Restart Explorer (or sign out and back in) for the change to take effect.</p>
+                    </div>
+                    <div class="ep-shots">
+                        <div class="gallery-item-enhanced ep-shot" data-index="6" data-caption="Classic Notification Center - Light">
+                            <img src="Images/Screenshot%202026-10-07%20220201.png" alt="Classic Windows 10 Notification Center and Quick Settings flyout in light mode" width="589" height="1327" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gallery-item-enhanced ep-shot" data-index="7" data-caption="Classic Notification Center - Dark">
+                            <img src="Images/Screenshot%202026-10-07%20215530.png" alt="Classic Windows 10 Notification Center and Quick Settings flyout in dark mode" width="590" height="1333" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+        </div>
+
+        
+
+        <!-- The Ultimate Microsoft Windows Builds List Card -->
+        <div class="win7">
+        <section class="card wide-card window" id="builds-list-card">
+            <div class="window-body has-space">
+                <h2 class="section-title"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" width="18" height="18" preserveAspectRatio="xMidYMid" style="vertical-align: middle; margin-right: 4px;"><path fill="#F1511B" d="M121.666 121.666H0V0h121.666z"/><path fill="#80CC28" d="M256 121.666H134.335V0H256z"/><path fill="#00ADEF" d="M121.663 256.002H0V134.336h121.663z"/><path fill="#FBBC09" d="M256 256.002H134.335V134.336H256z"/></svg> The Ultimate Microsoft Windows Build Of The Whole History</h2>
+                <p class="about-bio">Every Microsoft Windows build ever &mdash; from Windows 1.0 (1985) to Windows 11 &mdash; collected in one giant list.</p>
+                <div class="windows-iso-buttons">
+                    <button id="open-builds-list-btn" class="win-iso-btn win-iso-btn-primary" type="button">Open the list</button>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- Social Cards Container -->
+        <div class="win7">
+            <section id="social-media" class="card window social-section-card">
+                <div class="window-body">
+                <div class="social-cards-container">
+                    <div class="social-platform-icon">
+                        <img src="icons/instagram-64px.png" alt="Instagram" width="32" height="32">
+                        <h3 class="social-platform-name">Instagram</h3>
+                        <p class="social-platform-desc">Follow for updates</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.instagram.com/asaph10074.pub0/','_blank')">My Instagram</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 256 180" width="32" height="32"><path fill="#E60000" d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z"/><path fill="#FFF" d="m102.421 128.06 66.328-38.418-66.328-38.418z"/></svg>
+                        <h3 class="social-platform-name">YouTube</h3>
+                        <p class="social-platform-desc">Subscribe for latest videos</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.youtube.com/@asaph10074','_blank')">My channel</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><use href="#icon-threads"/></svg>
+                        <h3 class="social-platform-name">Threads</h3>
+                        <p class="social-platform-desc">Follow my threads</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.threads.net/@asaph10074.pub1','_blank')">My Threads</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><use href="#icon-x"/></svg>
+                        <h3 class="social-platform-name">X / Twitter</h3>
+                        <p class="social-platform-desc">Follow my posts</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://x.com/asaph10074','_blank')">My X</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 216 216" width="32" height="32">
+    <defs>
+        <radialGradient id="snoo-rg" cx="169.75" cy="92.19" r="50.98" fx="169.75" fy="92.19" gradientTransform="matrix(1 0 0 .87 0 11.64)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#feffff"/>
+            <stop offset=".4" stop-color="#feffff"/>
+            <stop offset=".51" stop-color="#f9fcfc"/>
+            <stop offset=".62" stop-color="#edf3f5"/>
+            <stop offset=".7" stop-color="#dee9ec"/>
+            <stop offset=".72" stop-color="#d8e4e8"/>
+            <stop offset=".76" stop-color="#ccd8df"/>
+            <stop offset=".8" stop-color="#c8d5dd"/>
+            <stop offset=".83" stop-color="#ccd6de"/>
+            <stop offset=".85" stop-color="#d8dbe2"/>
+            <stop offset=".88" stop-color="#ede3e9"/>
+            <stop offset=".9" stop-color="#ffebef"/>
+        </radialGradient>
+        <radialGradient xlink:href="#snoo-rg" id="snoo-rg-2" cx="47.31" r="50.98" fx="47.31"/>
+        <radialGradient xlink:href="#snoo-rg" id="snoo-rg-3" cx="109.61" cy="85.59" r="153.78" fx="109.61" fy="85.59" gradientTransform="matrix(1 0 0 .7 0 25.56)"/>
+        <radialGradient id="snoo-rg-4" cx="-6.01" cy="64.68" r="12.85" fx="-6.01" fy="64.68" gradientTransform="matrix(1.07 0 0 1.55 81.08 27.26)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f60"/>
+            <stop offset=".5" stop-color="#ff4500"/>
+            <stop offset=".7" stop-color="#fc4301"/>
+            <stop offset=".82" stop-color="#f43f07"/>
+            <stop offset=".92" stop-color="#e53812"/>
+            <stop offset="1" stop-color="#d4301f"/>
+        </radialGradient>
+        <radialGradient xlink:href="#snoo-rg-4" id="snoo-rg-5" cx="-73.55" cy="64.68" r="12.85" fx="-73.55" fy="64.68" gradientTransform="matrix(-1.07 0 0 1.55 62.87 27.26)"/>
+        <radialGradient id="snoo-rg-6" cx="107.93" cy="166.96" r="45.3" fx="107.93" fy="166.96" gradientTransform="matrix(1 0 0 .66 0 57.4)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#172e35"/>
+            <stop offset=".29" stop-color="#0e1c21"/>
+            <stop offset=".73" stop-color="#030708"/>
+            <stop offset="1"/>
+        </radialGradient>
+        <radialGradient xlink:href="#snoo-rg" id="snoo-rg-7" cx="147.88" cy="32.94" r="39.77" fx="147.88" fy="32.94" gradientTransform="matrix(1 0 0 .98 0 .54)"/>
+        <radialGradient id="snoo-rg-8" cx="131.31" cy="73.08" r="32.6" fx="131.31" fy="73.08" gradientUnits="userSpaceOnUse">
+            <stop offset=".48" stop-color="#7a9299"/>
+            <stop offset=".67" stop-color="#172e35"/>
+            <stop offset=".75"/>
+            <stop offset=".82" stop-color="#172e35"/>
+        </radialGradient>
+    </defs>
+    <path fill="#ff4500" stroke-width="0" d="M108 0C48.35 0 0 48.35 0 108c0 29.82 12.09 56.82 31.63 76.37l-20.57 20.57C6.98 209.02 9.87 216 15.64 216H108c59.65 0 108-48.35 108-108S167.65 0 108 0Z"/>
+    <circle cx="169.22" cy="106.98" r="25.22" fill="url(#snoo-rg)" stroke-width="0"/>
+    <circle cx="46.78" cy="106.98" r="25.22" fill="url(#snoo-rg-2)" stroke-width="0"/>
+    <ellipse cx="108.06" cy="128.64" fill="url(#snoo-rg-3)" stroke-width="0" rx="72" ry="54"/>
+    <path fill="url(#snoo-rg-4)" stroke-width="0" d="M86.78 123.48c-.42 9.08-6.49 12.38-13.56 12.38s-12.46-4.93-12.04-14.01c.42-9.08 6.49-15.02 13.56-15.02s12.46 7.58 12.04 16.66Z"/>
+    <path fill="url(#snoo-rg-5)" stroke-width="0" d="M129.35 123.48c.42 9.08 6.49 12.38 13.56 12.38s12.46-4.93 12.04-14.01c-.42-9.08-6.49-15.02-13.56-15.02s-12.46 7.58-12.04 16.66Z"/>
+    <ellipse cx="79.63" cy="116.37" fill="#ffc49c" stroke-width="0" rx="2.8" ry="3.05"/>
+    <ellipse cx="146.21" cy="116.37" fill="#ffc49c" stroke-width="0" rx="2.8" ry="3.05"/>
+    <path fill="url(#snoo-rg-6)" stroke-width="0" d="M108.06 142.92c-8.76 0-17.16.43-24.92 1.22-1.33.13-2.17 1.51-1.65 2.74 4.35 10.39 14.61 17.69 26.57 17.69s22.23-7.3 26.57-17.69c.52-1.23-.33-2.61-1.65-2.74-7.77-.79-16.16-1.22-24.92-1.22Z"/>
+    <circle cx="147.49" cy="49.43" r="17.87" fill="url(#snoo-rg-7)" stroke-width="0"/>
+    <path fill="url(#snoo-rg-8)" stroke-width="0" d="M107.8 76.92c-2.14 0-3.87-.89-3.87-2.27 0-16.01 13.03-29.04 29.04-29.04 2.14 0 3.87 1.73 3.87 3.87s-1.73 3.87-3.87 3.87c-11.74 0-21.29 9.55-21.29 21.29 0 1.38-1.73 2.27-3.87 2.27Z"/>
+    <path fill="#842123" stroke-width="0" d="M62.82 122.65c.39-8.56 6.08-14.16 12.69-14.16 6.26 0 11.1 6.39 11.28 14.33.17-8.88-5.13-15.99-12.05-15.99s-13.14 6.05-13.56 15.2c-.42 9.15 4.97 13.83 12.04 13.83h.52c-6.44-.16-11.3-4.79-10.91-13.2Zm90.48 0c-.39-8.56-6.08-14.16-12.69-14.16-6.26 0-11.1 6.39-11.28 14.33-.17-8.88 5.13-15.99 12.05-15.99 7.07 0 13.14 6.05 13.56 15.2.42 9.15-4.97 13.83-12.04 13.83h-.52c6.44-.16 11.3-4.79 10.91-13.2Z"/>
+</svg>
+                        <h3 class="social-platform-name">Reddit</h3>
+                        <p class="social-platform-desc">Join my community</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.reddit.com/user/Asaph100740/','_blank')">My Reddit</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><use href="#icon-pinterest"/></svg>
+                        <h3 class="social-platform-name">Pinterest</h3>
+                        <p class="social-platform-desc">See my pins</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.pinterest.com/asaph10074/','_blank')">My Pinterest</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><use href="#icon-github"/></svg>
+                        <h3 class="social-platform-name">GitHub</h3>
+                        <p class="social-platform-desc">View my repositories</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://github.com/asaph100741/','_blank')">My GitHub</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><use href="#icon-facebook"/></svg>
+                        <h3 class="social-platform-name">Facebook</h3>
+                        <p class="social-platform-desc">Follow my profile</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.facebook.com/share/1CYbPDRc6F/','_blank')">My Facebook</button>
+                    </div>
+
+                    <div class="social-platform-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><use href="#icon-snapchat"/></svg>
+                        <h3 class="social-platform-name">Snapchat</h3>
+                        <p class="social-platform-desc">Add my snap</p>
+                        <button class="lang-option social-platform-btn" onclick="window.open('https://www.snapchat.com/add/asaph10074','_blank')">My Snapchat</button>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
+
+        </div>
+
+
+
+</main>
+
+    <!-- SVG Sprite Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <symbol id="icon-youtube" viewBox="0 0 256 180">
+        <path fill="#E60000" d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z"/>
+        <path fill="#FFF" d="m102.421 128.06 66.328-38.418-66.328-38.418z"/>
+    </symbol>
+    <symbol id="icon-threads" viewBox="0 0 24 24">
+        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221Z"/>
+    </symbol>
+
+    <symbol id="icon-x" viewBox="0 0 24 24">
+        <rect width="24" height="24" fill="#000000"/>
+        <path fill="#ffffff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 666.667 666.667">
+        <defs>
+            <clipPath id="fb-a" clipPathUnits="userSpaceOnUse">
+                <path d="M0 700h700V0H0Z"/>
+            </clipPath>
+        </defs>
+        <g clip-path="url(#fb-a)" transform="matrix(1.33333 0 0 -1.33333 -133.333 800)">
+            <path d="M0 0c0 138.071-111.929 250-250 250S-500 138.071-500 0c0-117.245 80.715-215.622 189.606-242.638v166.242h-51.552V0h51.552v32.919c0 85.092 38.508 124.532 122.048 124.532 15.838 0 43.167-3.105 54.347-6.211V81.986c-5.901.621-16.149.932-28.882.932-40.993 0-56.832-15.528-56.832-55.9V0h81.659l-14.028-76.396h-67.631v-171.773C-95.927-233.218 0-127.818 0 0" style="fill:#0866ff;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(600 350)"/>
+            <path d="m0 0 14.029 76.396H-67.63v27.019c0 40.372 15.838 55.899 56.831 55.899 12.733 0 22.981-.31 28.882-.931v69.253c-11.18 3.106-38.509 6.212-54.347 6.212-83.539 0-122.048-39.441-122.048-124.533V76.396h-51.552V0h51.552v-166.242a250.559 250.559 0 0 1 60.394-7.362c10.254 0 20.358.632 30.288 1.831V0Z" style="fill:#fff;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(447.918 273.604)"/>
+        </g>
+    </symbol>
+    <symbol id="icon-pinterest" viewBox="0 0 256 256">
+        <circle cx="128" cy="128" r="128" fill="#ffffff"/>
+        <path fill="#E60023" d="M0 128.002c0 52.414 31.518 97.442 76.619 117.239c-.36-8.938-.064-19.668 2.228-29.393c2.461-10.391 16.47-69.748 16.47-69.748s-4.089-8.173-4.089-20.252c0-18.969 10.994-33.136 24.686-33.136c11.643 0 17.268 8.745 17.268 19.217c0 11.704-7.465 29.211-11.304 45.426c-3.207 13.578 6.808 24.653 20.203 24.653c24.252 0 40.586-31.149 40.586-68.055c0-28.054-18.895-49.052-53.262-49.052c-38.828 0-63.017 28.956-63.017 61.3c0 11.152 3.288 19.016 8.438 25.106c2.368 2.797 2.697 3.922 1.84 7.134c-.614 2.355-2.024 8.025-2.608 10.272c-.852 3.242-3.479 4.401-6.409 3.204c-17.884-7.301-26.213-26.886-26.213-48.902c0-36.361 30.666-79.961 91.482-79.961c48.87 0 81.035 35.364 81.035 73.325c0 50.213-27.916 87.726-69.066 87.726c-13.819 0-26.818-7.47-31.271-15.955c0 0-7.431 29.492-9.005 35.187c-2.714 9.869-8.026 19.733-12.883 27.421a127.897 127.897 0 0 0 36.277 5.249c70.684 0 127.996-57.309 127.996-128.005C256.001 57.309 198.689 0 128.005 0C57.314 0 0 57.309 0 128.002"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="12" fill="#ffffff"/>
+        <path fill="#24292e" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </symbol>
+    <symbol id="icon-snapchat" viewBox="147.353 39.286 514.631 514.631">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path style="fill:#FFFC00;" d="M147.553,423.021v0.023c0.308,11.424,0.403,22.914,2.33,34.268 c2.042,12.012,4.961,23.725,10.53,34.627c7.529,14.756,17.869,27.217,30.921,37.396c9.371,7.309,19.608,13.111,30.94,16.771 c16.524,5.33,33.571,7.373,50.867,7.473c10.791,0.068,21.575,0.338,32.37,0.293c78.395-0.33,156.792,0.566,235.189-0.484 c10.403-0.141,20.636-1.41,30.846-3.277c19.569-3.582,36.864-11.932,51.661-25.133c17.245-15.381,28.88-34.205,34.132-56.924 c3.437-14.85,4.297-29.916,4.444-45.035v-3.016c0-1.17-0.445-256.892-0.486-260.272c-0.115-9.285-0.799-18.5-2.54-27.636 c-2.117-11.133-5.108-21.981-10.439-32.053c-5.629-10.641-12.68-20.209-21.401-28.57c-13.359-12.81-28.775-21.869-46.722-26.661 c-16.21-4.327-32.747-5.285-49.405-5.27c-0.027-0.004-0.09-0.173-0.094-0.255H278.56c-0.005,0.086-0.008,0.172-0.014,0.255 c-9.454,0.173-18.922,0.102-28.328,1.268c-10.304,1.281-20.509,3.21-30.262,6.812c-15.362,5.682-28.709,14.532-40.11,26.347 c-12.917,13.386-22.022,28.867-26.853,46.894c-4.31,16.084-5.248,32.488-5.271,49.008"></path>
+            <path style="fill:#FFFFFF;" d="M407.001,473.488c-1.068,0-2.087-0.039-2.862-0.076c-0.615,0.053-1.25,0.076-1.886,0.076 c-22.437,0-37.439-10.607-50.678-19.973c-9.489-6.703-18.438-13.031-28.922-14.775c-5.149-0.854-10.271-1.287-15.22-1.287 c-8.917,0-15.964,1.383-21.109,2.389c-3.166,0.617-5.896,1.148-8.006,1.148c-2.21,0-4.895-0.49-6.014-4.311 c-0.887-3.014-1.523-5.934-2.137-8.746c-1.536-7.027-2.65-11.316-5.281-11.723c-28.141-4.342-44.768-10.738-48.08-18.484 c-0.347-0.814-0.541-1.633-0.584-2.443c-0.129-2.309,1.501-4.334,3.777-4.711c22.348-3.68,42.219-15.492,59.064-35.119 c13.049-15.195,19.457-29.713,20.145-31.316c0.03-0.072,0.065-0.148,0.101-0.217c3.247-6.588,3.893-12.281,1.926-16.916 c-3.626-8.551-15.635-12.361-23.58-14.882c-1.976-0.625-3.845-1.217-5.334-1.808c-7.043-2.782-18.626-8.66-17.083-16.773 c1.124-5.916,8.949-10.036,15.273-10.036c1.756,0,3.312,0.308,4.622,0.923c7.146,3.348,13.575,5.045,19.104,5.045 c6.876,0,10.197-2.618,11-3.362c-0.198-3.668-0.44-7.546-0.674-11.214c0-0.004-0.005-0.048-0.005-0.048 c-1.614-25.675-3.627-57.627,4.546-75.95c24.462-54.847,76.339-59.112,91.651-59.112c0.408,0,6.674-0.062,6.674-0.062 c0.283-0.005,0.59-0.009,0.908-0.009c15.354,0,67.339,4.27,91.816,59.15c8.173,18.335,6.158,50.314,4.539,76.016l-0.076,1.23 c-0.222,3.49-0.427,6.793-0.6,9.995c0.756,0.696,3.795,3.096,9.978,3.339c5.271-0.202,11.328-1.891,17.998-5.014 c2.062-0.968,4.345-1.169,5.895-1.169c2.343,0,4.727,0.456,6.714,1.285l0.106,0.041c5.66,2.009,9.367,6.024,9.447,10.242 c0.071,3.932-2.851,9.809-17.223,15.485c-1.472,0.583-3.35,1.179-5.334,1.808c-7.952,2.524-19.951,6.332-23.577,14.878 c-1.97,4.635-1.322,10.326,1.926,16.912c0.036,0.072,0.067,0.145,0.102,0.221c1,2.344,25.205,57.535,79.209,66.432 c2.275,0.379,3.908,2.406,3.778,4.711c-0.048,0.828-0.248,1.656-0.598,2.465c-3.289,7.703-19.915,14.09-48.064,18.438 c-2.642,0.408-3.755,4.678-5.277,11.668c-0.63,2.887-1.271,5.717-2.146,8.691c-0.819,2.797-2.641,4.164-5.567,4.164h-0.441 c-1.905,0-4.604-0.346-8.008-1.012c-5.95-1.158-12.623-2.236-21.109-2.236c-4.948,0-10.069,0.434-15.224,1.287 c-10.473,1.744-19.421,8.062-28.893,14.758C444.443,462.88,429.436,473.488,407.001,473.488"></path>
+            <path style="fill:#020202;" d="M408.336,124.235c14.455,0,64.231,3.883,87.688,56.472c7.724,17.317,5.744,48.686,4.156,73.885 c-0.248,3.999-0.494,7.875-0.694,11.576l-0.084,1.591l1.062,1.185c0.429,0.476,4.444,4.672,13.374,5.017l0.144,0.008l0.15-0.003 c5.904-0.225,12.554-2.059,19.776-5.442c1.064-0.498,2.48-0.741,3.978-0.741c1.707,0,3.521,0.321,5.017,0.951l0.226,0.09 c3.787,1.327,6.464,3.829,6.505,6.093c0.022,1.28-0.935,5.891-14.359,11.194c-1.312,0.518-3.039,1.069-5.041,1.7 c-8.736,2.774-21.934,6.96-26.376,17.427c-2.501,5.896-1.816,12.854,2.034,20.678c1.584,3.697,26.52,59.865,82.631,69.111 c-0.011,0.266-0.079,0.557-0.229,0.9c-0.951,2.24-6.996,9.979-44.612,15.783c-5.886,0.902-7.328,7.5-9,15.17 c-0.604,2.746-1.218,5.518-2.062,8.381c-0.258,0.865-0.306,0.914-1.233,0.914c-0.128,0-0.278,0-0.442,0 c-1.668,0-4.2-0.346-7.135-0.922c-5.345-1.041-12.647-2.318-21.982-2.318c-5.21,0-10.577,0.453-15.962,1.352 c-11.511,1.914-20.872,8.535-30.786,15.543c-13.314,9.408-27.075,19.143-48.071,19.143c-0.917,0-1.812-0.031-2.709-0.076 l-0.236-0.01l-0.237,0.018c-0.515,0.045-1.034,0.068-1.564,0.068c-20.993,0-34.76-9.732-48.068-19.143 c-9.916-7.008-19.282-13.629-30.791-15.543c-5.38-0.896-10.752-1.352-15.959-1.352c-9.333,0-16.644,1.428-21.978,2.471 c-2.935,0.574-5.476,1.066-7.139,1.066c-1.362,0-1.388-0.08-1.676-1.064c-0.844-2.865-1.461-5.703-2.062-8.445 c-1.676-7.678-3.119-14.312-9.002-15.215c-37.613-5.809-43.659-13.561-44.613-15.795c-0.149-0.352-0.216-0.652-0.231-0.918 c56.11-9.238,81.041-65.408,82.63-69.119c3.857-7.818,4.541-14.775,2.032-20.678c-4.442-10.461-17.638-14.653-26.368-17.422 c-2.007-0.635-3.735-1.187-5.048-1.705c-11.336-4.479-14.823-8.991-14.305-11.725c0.601-3.153,6.067-6.359,10.837-6.359 c1.072,0,2.012,0.173,2.707,0.498c7.747,3.631,14.819,5.472,21.022,5.472c9.751,0,14.091-4.537,14.557-5.055l1.057-1.182 l-0.085-1.583c-0.197-3.699-0.44-7.574-0.696-11.565c-1.583-25.205-3.563-56.553,4.158-73.871 c23.37-52.396,72.903-56.435,87.525-56.435c0.36,0,6.717-0.065,6.717-0.065C407.744,124.239,408.033,124.235,408.336,124.235 M408.336,115.197h-0.017c-0.333,0-0.646,0-0.944,0.004c-2.376,0.024-6.282,0.062-6.633,0.066c-8.566,0-25.705,1.21-44.115,9.336 c-10.526,4.643-19.994,10.921-28.14,18.66c-9.712,9.221-17.624,20.59-23.512,33.796c-8.623,19.336-6.576,51.905-4.932,78.078 l0.006,0.041c0.176,2.803,0.361,5.73,0.53,8.582c-1.265,0.581-3.316,1.194-6.339,1.194c-4.864,0-10.648-1.555-17.187-4.619 c-1.924-0.896-4.12-1.349-6.543-1.349c-3.893,0-7.997,1.146-11.557,3.239c-4.479,2.63-7.373,6.347-8.159,10.468 c-0.518,2.726-0.493,8.114,5.492,13.578c3.292,3.008,8.128,5.782,14.37,8.249c1.638,0.645,3.582,1.261,5.641,1.914 c7.145,2.271,17.959,5.702,20.779,12.339c1.429,3.365,0.814,7.793-1.823,13.145c-0.069,0.146-0.138,0.289-0.201,0.439 c-0.659,1.539-6.807,15.465-19.418,30.152c-7.166,8.352-15.059,15.332-23.447,20.752c-10.238,6.617-21.316,10.943-32.923,12.855 c-4.558,0.748-7.813,4.809-7.559,9.424c0.078,1.33,0.39,2.656,0.931,3.939c0.004,0.008,0.009,0.016,0.013,0.023 c1.843,4.311,6.116,7.973,13.063,11.203c8.489,3.943,21.185,7.26,37.732,9.855c0.836,1.59,1.704,5.586,2.305,8.322 c0.629,2.908,1.285,5.898,2.22,9.074c1.009,3.441,3.626,7.553,10.349,7.553c2.548,0,5.478-0.574,8.871-1.232 c4.969-0.975,11.764-2.305,20.245-2.305c4.702,0,9.575,0.414,14.48,1.229c9.455,1.574,17.606,7.332,27.037,14 c13.804,9.758,29.429,20.803,53.302,20.803c0.651,0,1.304-0.021,1.949-0.066c0.789,0.037,1.767,0.066,2.799,0.066 c23.88,0,39.501-11.049,53.29-20.799l0.022-0.02c9.433-6.66,17.575-12.41,27.027-13.984c4.903-0.814,9.775-1.229,14.479-1.229 c8.102,0,14.517,1.033,20.245,2.15c3.738,0.736,6.643,1.09,8.872,1.09l0.218,0.004h0.226c4.917,0,8.53-2.699,9.909-7.422 c0.916-3.109,1.57-6.029,2.215-8.986c0.562-2.564,1.46-6.674,2.296-8.281c16.558-2.6,29.249-5.91,37.739-9.852 c6.931-3.215,11.199-6.873,13.053-11.166c0.556-1.287,0.881-2.621,0.954-3.979c0.261-4.607-2.999-8.676-7.56-9.424 c-51.585-8.502-74.824-61.506-75.785-63.758c-0.062-0.148-0.132-0.295-0.205-0.438c-2.637-5.354-3.246-9.777-1.816-13.148 c2.814-6.631,13.621-10.062,20.771-12.332c2.07-0.652,4.021-1.272,5.646-1.914c7.039-2.78,12.07-5.796,15.389-9.221 c3.964-4.083,4.736-7.995,4.688-10.555c-0.121-6.194-4.856-11.698-12.388-14.393c-2.544-1.052-5.445-1.607-8.399-1.607 c-2.011,0-4.989,0.276-7.808,1.592c-6.035,2.824-11.441,4.368-16.082,4.588c-2.468-0.125-4.199-0.66-5.32-1.171 c0.141-2.416,0.297-4.898,0.458-7.486l0.067-1.108c1.653-26.19,3.707-58.784-4.92-78.134c-5.913-13.253-13.853-24.651-23.604-33.892 c-8.178-7.744-17.678-14.021-28.242-18.661C434.052,116.402,416.914,115.197,408.336,115.197"></path>
+        </g>
+    </symbol>
+</svg>
+
+<!-- Builds List Modal -->
+<div id="builds-modal" class="builds-modal" style="display: none;" aria-hidden="true">
+    <div class="builds-modal-backdrop" onclick="closeBuildsModal()"></div>
+    <div class="builds-modal-window" role="dialog" aria-modal="true" aria-label="The Ultimate Microsoft Windows Build List">
+        <div class="builds-modal-titlebar">
+            <span class="builds-modal-heading">
+                <span class="bm-ico-wrap"><img class="bm-ico bm-ico-netshell" src="icons/notepad_2.webp" alt="" width="18" height="18" decoding="async"><img class="bm-ico bm-ico-m3" src="icons/list_40dp_000000_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="18" height="18" decoding="async"></span>
+                <span class="builds-modal-title">The Ultimate Microsoft Windows Build Of The Whole History</span>
+            </span>
+            <button class="builds-modal-close" onclick="closeBuildsModal()" aria-label="Close">&times;</button>
+        </div>
+        <div class="builds-modal-body" id="builds-modal-body">
+            <div class="builds-list-blurred" id="builds-list"></div>
+        </div>
+        <div class="builds-modal-foot">
+            <span class="builds-count" id="builds-count">Loading the list&hellip;</span>
+            <a class="builds-raw-link" id="builds-raw-link" href="#" target="_blank" rel="noopener">View raw .md</a>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery Modal -->
+<div id="modal-box" class="modal-box" style="display: none;">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <button class="modal-nav modal-prev" id="prev-btn" onclick="changeImage(-1)" aria-label="Previous image">&#10094;</button>
+        <button class="modal-nav modal-next" id="next-btn" onclick="changeImage(1)" aria-label="Next image">&#10095;</button>
+        <div class="modal-image-container">
+            <img id="modal-img" src="" alt="">
+            <div class="modal-image-loading">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-info">
+                <div class="modal-caption" id="modal-caption"></div>
+                <div class="modal-counter" id="modal-counter"></div>
+            </div>
+            <div class="modal-thumbnails" id="modal-thumbnails"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+

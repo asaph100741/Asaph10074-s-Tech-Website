@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="404 - Page Not Found">
+    <title>404 - Page Not Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=7d3fd703">
+    <link rel="stylesheet" href="Styles/7.scoped.css?v=cda0532c" media="print" onload="var t;try{t=localStorage.getItem('theme-style-v2')}catch(e){}this.media=(t==='expressive')?'none':'all'" id="w7css-theme">
+    <link rel="stylesheet" href="Styles/nav-menu.css?v=a84ad011">
+    <link rel="stylesheet" href="Styles/modal-shell.css?v=10acc515">
+    <link rel="stylesheet" href="Styles/scrollbar-desktop.css?v=351d0e04">
+
+    <script>
+    (function () {
+        var saved = 'aero';
+        try { saved = localStorage.getItem('theme-style-v2') || 'aero'; } catch (e) {}
+        var map = {
+            'expressive': 'Styles/theme-expressive.css?v=1e087b67',
+            'skeuo': 'Styles/theme-skeuo.css?v=48bb0d7a'
+        };
+        var href = map[saved];
+        if (href) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.id = saved === 'expressive' ? 'theme-expressive-css' : 'theme-skeuo-css';
+            link.href = href;
+            document.head.appendChild(link);
+        }
+    })();
+    </script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .not-found-card {
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 3rem 2.5rem;
+        }
+
+        .not-found-card .section-title {
+            width: auto;
+            justify-content: center;
+        }
+
+        .not-found-badge {
+            font-family: var(--fa-h2-font, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+            font-weight: 700;
+            font-size: clamp(5rem, 22vw, 9rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            background: var(--fa-button-green);
+            background-size: 100% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: notfoundPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes notfoundPulse {
+            0%, 100% { opacity: 1; }
+            50%        { opacity: 0.75; }
+        }
+
+        .not-found-text {
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 38ch;
+            margin: 0.5rem 0 1.5rem;
+            color: var(--fa-text);
+        }
+
+        .not-found-card .m3-btn {
+            min-width: 200px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    (function () {
+        var saved = 'aero';
+        try { saved = localStorage.getItem('theme-style-v2') || 'aero'; } catch (e) {}
+        var light = 'dark';
+        try { light = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+        if (light === 'light') document.body.classList.add('light-mode');
+        if (saved !== 'aero' && saved !== 'skeuo' && saved !== 'expressive') saved = 'aero';
+        document.body.setAttribute('data-theme-style', saved);
+    })();
+    </script>
+    <main class="container">
+        <div class="win7">
+        <section class="card not-found-card window">
+            <div class="window-body has-space">
+            <div class="not-found-badge">404</div>
+            <h1 class="section-title">Page Not Found</h1>
+            <p class="not-found-text">The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
+            <a href="index.html" class="m3-btn">Back to home</a>
+            </div>
+        </section>
+        </div>
+    </main>
+</body>
+</html>
