@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Light mode">
+  <defs>
+    <!-- opaque, saturated, hard-edged: the skeuomorphic tell, not a flat glyph -->
+    <linearGradient id="sl-ray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd76a"/>
+      <stop offset="55%" stop-color="#f2a72c"/>
+      <stop offset="100%" stop-color="#b06a00"/>
+    </linearGradient>
+    <radialGradient id="sl-disc" cx="36%" cy="30%" r="78%">
+      <stop offset="0%" stop-color="#fff8dc"/>
+      <stop offset="30%" stop-color="#ffd24a"/>
+      <stop offset="70%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#a85f00"/>
+    </radialGradient>
+    <!-- the hard gloss band across the top of the orb, straight off the theme -->
+    <linearGradient id="sl-gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sl-spec" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <path id="sl-ray-shape" d="M9 4.2 9.7 1.4h4.6L15 4.2Z"/>
+    <clipPath id="sl-clip"><circle cx="12" cy="12" r="8.2"/></clipPath>
+  </defs>
+  <g fill="url(#sl-ray)">
+    <use href="#sl-ray-shape"/>
+    <use href="#sl-ray-shape" transform="rotate(45 12 12)"/>
+    <use href="#sl-ray-shape" transform="rotate(90 12 12)"/>
+    <use href="#sl-ray-shape" transform="rotate(135 12 12)"/>
+    <use href="#sl-ray-shape" transform="rotate(180 12 12)"/>
+    <use href="#sl-ray-shape" transform="rotate(225 12 12)"/>
+    <use href="#sl-ray-shape" transform="rotate(270 12 12)"/>
+    <use href="#sl-ray-shape" transform="rotate(315 12 12)"/>
+  </g>
+  <circle cx="12" cy="12" r="8.2" fill="url(#sl-disc)"/>
+  <rect x="3" y="3.4" width="18" height="5.4" fill="url(#sl-gloss)" clip-path="url(#sl-clip)"/>
+  <ellipse cx="9.5" cy="8.9" rx="2.7" ry="1.7" fill="url(#sl-spec)"/>
+</svg>
