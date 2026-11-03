@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Aero Skeuomorphism">
+  <defs>
+    <!-- the Win7 chrome slab: light top bevel, hard midline, dark bottom -->
+    <linearGradient id="as-plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a7077"/>
+      <stop offset="16%" stop-color="#4a4f56"/>
+      <stop offset="49%" stop-color="#1b1e22"/>
+      <stop offset="51%" stop-color="#0e1113"/>
+      <stop offset="100%" stop-color="#3a4046"/>
+    </linearGradient>
+    <linearGradient id="as-edge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- the opaque red-brown orb the theme paints its close buttons with -->
+    <radialGradient id="as-orb" cx="36%" cy="26%" r="80%">
+      <stop offset="0%" stop-color="#ffd9c4"/>
+      <stop offset="16%" stop-color="#f0906a"/>
+      <stop offset="42%" stop-color="#c4571f"/>
+      <stop offset="68%" stop-color="#a13e20"/>
+      <stop offset="88%" stop-color="#83250e"/>
+      <stop offset="100%" stop-color="#4e0f00"/>
+    </radialGradient>
+    <radialGradient id="as-spec" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset="65%" stop-color="#ffffff" stop-opacity=".28"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- the hard gloss band across the top of the orb: the Aero tell -->
+    <linearGradient id="as-gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="4.5" width="42" height="39" rx="4.5" fill="url(#as-plate)" stroke="#8b9198" stroke-width="1.4"/>
+  <path d="M7.5 5.9h33a4.5 4.5 0 0 1 4.5 4.5V12H3V10.4A4.5 4.5 0 0 1 7.5 5.9Z" fill="url(#as-edge)"/>
+  <circle cx="24" cy="25.6" r="14.4" fill="url(#as-orb)"/>
+  <path d="M24 11.2a14.4 14.4 0 0 0-14.4 14.4 14.4 14.4 0 0 0 .7 4.7 12.2 12.2 0 0 1 1-17.1A14.3 14.3 0 0 1 24 11.2Z" fill="url(#as-gloss)"/>
+  <ellipse cx="18.9" cy="19.2" rx="4.9" ry="3.3" fill="url(#as-spec)"/>
+</svg>
