@@ -6517,10 +6517,13 @@ Windows 11 build 28020.1812 `x64`
 Windows 11 build 28020.1863 `x64`
 Windows 11 build 28020.1873 `x64`
 
+#### Validation OS Builds
+
 Validation OS build 26100.5074
 Validation OS build 26100.6725
 Validation OS build 26100.7019
 Validation OS build 26100.7309
+
 ### Server Builds
 
 #### Windows NT 4.0 Builds
